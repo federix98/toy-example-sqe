@@ -9,14 +9,18 @@ const body = JSON.stringify({
   ],
 });
 
+function italianTime(d) {
+  return new Date(d.getTime() + 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' ');
+}
+
 export function setup() {
   const now = new Date();
-  console.log(`start: ${Math.floor(now / 1000)} ${now.toISOString()}`);
+  console.log(`start: ${Math.floor(now / 1000)} ${italianTime(now)}`);
 }
 
 export function teardown() {
   const now = new Date();
-  console.log(`end: ${Math.floor(now / 1000)} ${now.toISOString()}`);
+  console.log(`end: ${Math.floor(now / 1000)} ${italianTime(now)}`);
 }
 
 export default function () {
